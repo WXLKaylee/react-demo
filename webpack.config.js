@@ -11,20 +11,24 @@ module.exports = {
   entry: {
     'js/app': [ './app/main.jsx' ],
     'css/style': './app/styles/style',
-    // 'js/vendor': [
-    //   'react',
-    //   'react-dom',
-    //   'react-router',
-    //   'antd',
-    //   'superagent',
-    //   'moment'
-    // ]
+    'js/vendor': [
+      'react',
+      'react-dom',
+      'react-router-dom',
+    ]
   },
   output: {
     path: path.join(__dirname, 'public'),
     filename: '[name].js',
     chunkFilename: 'js/chunk-[id].js',
     publicPath: '',
+  },
+  devServer: {
+    contentBase: path.join(__dirname, 'public'),
+    historyApiFallback: true,
+    hot: true,
+    inline: true,
+    port: 8888
   },
   resolve: {
     extensions: [ '.js', '.jsx', '.less'],
@@ -57,6 +61,5 @@ module.exports = {
       minChunks: Infinity,
       filename: 'js/common.js',
     }),
-
   ]
 };
