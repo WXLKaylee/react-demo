@@ -5,7 +5,7 @@ import { Route, BrowserRouter as Router } from 'react-router-dom';
 import Layout from './components/Layout/Layout';
 import Index from './pages/index';
 
-console.log(111);
+console.log(22223);
 
 const App = () => (
   <Router>

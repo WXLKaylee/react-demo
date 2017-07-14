@@ -7,7 +7,7 @@ export default class Layout extends React.Component {
     return (
       <div className="app-container">
         <h1>APP</h1>
-        <Link to="/index">Index</Link>
+        <Link to="/index">IndeX</Link>
         { this.props.children }
       </div>
     );
