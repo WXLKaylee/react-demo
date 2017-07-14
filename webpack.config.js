@@ -2,6 +2,7 @@ const path    = require('path');
 const webpack = require('webpack');
 const LiveReloadPlugin  = require('webpack-livereload-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const extractLESS = new ExtractTextPlugin({
   filename: '[name].css'
 });
@@ -27,8 +28,7 @@ module.exports = {
     contentBase: path.join(__dirname, 'public'),
     historyApiFallback: true,
     hot: true,
-    inline: true,
-    port: 8888
+    inline: true
   },
   resolve: {
     extensions: [ '.js', '.jsx', '.less'],
@@ -54,7 +54,10 @@ module.exports = {
   },
   plugins: [
     extractLESS,
-    new LiveReloadPlugin({}),
+    new HtmlWebpackPlugin({
+      template: 'my-index.html',
+      inject: 'body'
+    }),
     new ExtractTextPlugin("css/style.css"),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'js/vendor',

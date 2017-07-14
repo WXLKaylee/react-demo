@@ -5,6 +5,8 @@ import { Route, BrowserRouter as Router } from 'react-router-dom';
 import Layout from './components/Layout/Layout';
 import Index from './pages/index';
 
+console.log(111);
+
 const App = () => (
   <Router>
     <div>

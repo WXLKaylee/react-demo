@@ -4,7 +4,7 @@
   "description": "learn react+webpack",
   "main": "app/index.js",
   "scripts": {
-    "start": "webpack-dev-server --progress",
+    "start": "webpack-dev-server --progress --inline --hot",
     "build": "NODE_ENV=development webpack --progress -w",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -29,6 +29,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "css-loader": "^0.28.4",
+    "html-webpack-plugin": "^2.29.0",
     "less-loader": "^4.0.5",
     "style-loader": "^0.18.2",
     "webpack": "^3.2.0",
