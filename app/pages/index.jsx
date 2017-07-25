@@ -15,6 +15,7 @@ export default class Index extends React.Component {
     const { name, text } = this.state;
     return (
       <div className="index-container">
+        <h3>首页</h3>
         <input value={ name } onChange={ this.handleChange.bind(this) } />
         <h3>{ `${name},Hello!` }</h3>
       </div>

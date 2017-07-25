@@ -27,7 +27,10 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, 'public'),
     hot: true,
-    inline: true
+    inline: true,
+    historyApiFallback: {
+      index: 'index.html'
+    },
   },
   resolve: {
     extensions: [ '.js', '.jsx', '.less'],
@@ -57,6 +60,7 @@ module.exports = {
       template: 'my-index.html',
       inject: 'body'
     }),
+    new webpack.HotModuleReplacementPlugin({}),
     new ExtractTextPlugin("css/style.css"),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'js/vendor',
