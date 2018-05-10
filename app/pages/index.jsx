@@ -1,9 +1,15 @@
 import React  from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { COUNT } from '../actions';
+import { COUNT, NAME } from '../actions';
 
-@connect(state => ({ count: state.count }), dispatch => ({ dispatch }))
+@connect(state => ({
+  count: state.count,
+  name: state.name
+}), dispatch => ({ 
+  getName: bindActionCreators(NAME.fetchName, dispatch),
+ }))
 export default class Index extends React.Component {
 
   state = {
@@ -23,6 +29,7 @@ export default class Index extends React.Component {
         <h3>首页</h3>
         <input value={ name } onChange={ this.handleChange.bind(this) } />
         <h3>{ `${name},Hello!` }</h3>
+
         <h3>redux demo</h3>
         <div>count: {count.count} preCount: {count.preCount} nextCount: {count.nextCount}</div>
         <span className="btn" onClick={ () => {
@@ -38,6 +45,12 @@ export default class Index extends React.Component {
               nextCount: 150,
             }));
           } }>setCount</span>
+
+        <h3>redux demo - request</h3>
+        <div>name: { this.props.name.isFetching ? 'loading...' : this.props.name.name }</div>
+        <span className="btn" onClick={ () => {
+            this.props.getName();
+          } }>getName</span>
       </div>
     );
   }

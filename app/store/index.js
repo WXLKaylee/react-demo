@@ -1,5 +1,5 @@
 import { compose, createStore, applyMiddleware } from 'redux';
-// import thunk from 'redux-thunk';
+import thunk from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 import reducers from '../reducers';
 
@@ -10,6 +10,7 @@ const getDevStore = (initialState) => {
       initialState,
       compose(
           applyMiddleware(
+              thunk,
               createLogger()
           ),
           window.devToolsExtension ? window.devToolsExtension() : f => f
@@ -21,6 +22,11 @@ const getProStore = (initialState) => {
   const store = createStore(
         reducers,
         initialState,
+        compose(
+            applyMiddleware(
+                thunk
+            )
+        )
     );
 
   return store;
