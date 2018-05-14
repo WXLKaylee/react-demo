@@ -1,3 +1,8 @@
+/**
+ * @Author      kaylee
+ * @description [异步action]
+ * @DateTime    2018-05-14
+ */
 const REQUEST_NAME = 'REQUEST_NAME';
 const RECEIVE_NAME = 'RECEIVE_NAME';
 const INVALID_NAME = 'INVALID_NAME';

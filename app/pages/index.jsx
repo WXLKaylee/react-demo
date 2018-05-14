@@ -8,6 +8,7 @@ import { COUNT, NAME } from '../actions';
   count: state.count,
   name: state.name
 }), dispatch => ({ 
+  dispatch,
   getName: bindActionCreators(NAME.fetchName, dispatch),
  }))
 export default class Index extends React.Component {
